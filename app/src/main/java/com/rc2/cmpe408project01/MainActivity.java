@@ -29,6 +29,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void setupViews() {
         Button submitButton = findViewById(R.id.submit_button);
         submitButton.setOnClickListener(this);
+
+        Button exitButton = findViewById(R.id.exit_button);
+        exitButton.setOnClickListener(this);
+
+        Button resetButton = findViewById(R.id.reset_button);
+        resetButton.setOnClickListener(this);
     }
 
     private void handleStudentIDTextChangedListener() {
