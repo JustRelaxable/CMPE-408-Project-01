@@ -1,4 +1,5 @@
 <resources>
+    <string name="greeting_text">Welcome to student management system. Please provide your informations below.</string>
     <string name="app_name">cmpe 408 Project 01</string>
     <string name="id">ID</string>
     <string name="student_id">Student ID</string>
