@@ -6,15 +6,24 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     String[] facultyList = {"Faculty of Arts","Faculty of Law","Faculty of Engineering"};
+    JSONObject cities;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +31,53 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         setupViews();
+        loadCities();
+        loadBirthplaceSpinner();
         loadFacultySpinner();
         handleStudentIDTextChangedListener();
+    }
+
+    private void loadCities() {
+        try {
+            InputStream is = getAssets().open("cities.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            String raw = new String(buffer,"UTF-8");
+            cities = new JSONObject(raw);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void loadBirthplaceSpinner() {
+        Spinner birthplaceSpinner = findViewById(R.id.birthplace_spinner);
+        String[] cityCodes = new String[81];
+        for (int i = 1;i<=81;i++){
+            cityCodes[i-1] = String.valueOf(i);
+        }
+        ArrayAdapter ad = new ArrayAdapter(this, android.R.layout.simple_spinner_item,cityCodes);
+        ad.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        birthplaceSpinner.setAdapter(ad);
+        TextView cityName = findViewById(R.id.city_name);
+        birthplaceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                try {
+                    cityName.setText(cities.getString(String.valueOf(i+1)));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
     private void setupViews() {

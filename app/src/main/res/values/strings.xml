@@ -7,6 +7,7 @@
     <string name="last_name">Last Name</string>
     <string name="birth_date">Birth Date</string>
     <string name="birthplace">Birthplace</string>
+    <string name="birthplace_selection">Birthplace Selection</string>
     <string name="gender">Gender</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
