@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.reset_button:
                 break;
             case R.id.exit_button:
+                System.exit(0);
                 break;
             default:
                 break;
