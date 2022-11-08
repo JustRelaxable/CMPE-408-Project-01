@@ -18,4 +18,7 @@
     <string name="submit">Submit</string>
     <string name="reset">Reset</string>
     <string name="exit">Exit</string>
+    <string name="birth_date_not_selected">Birth date is not selected!</string>
+    <string name="gender_selection">Gender Selection</string>
+    <string name="faculty_selection">Faculty Selection</string>
 </resources>
