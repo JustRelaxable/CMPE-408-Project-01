@@ -71,6 +71,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 else
                     Toast.makeText(this, R.string.fields_are_incomplete_warning, Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.reset_button:
+                break;
+            case R.id.exit_button:
+                break;
             default:
                 break;
         }
