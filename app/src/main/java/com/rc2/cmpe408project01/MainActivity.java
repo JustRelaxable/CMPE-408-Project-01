@@ -22,10 +22,11 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    String[] facultyList = {"Faculty of Arts","Faculty of Law","Faculty of Engineering"};
+    HashMap<String,String[]> facultyDepartmentHashMap = new HashMap<>();
     JSONObject cities;
 
     @Override
@@ -33,11 +34,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        loadFacultyDepartmentHashMap();
         setupViews();
         loadCities();
         loadBirthplaceSpinner();
         loadFacultySpinner();
         handleStudentIDTextChangedListener();
+    }
+
+    private void loadFacultyDepartmentHashMap() {
+        facultyDepartmentHashMap.put("Faculty of Arts",new String[] {"Art 1","Art 2","Art 3"});
+        facultyDepartmentHashMap.put("Faculty of Law",new String[]{"Law 1","Law 2","Law 3"});
+        facultyDepartmentHashMap.put("Faculty of Engineering",new String[]{"Engineering 1","Engineering 2","Engineering 3"});
     }
 
     private void loadCities() {
@@ -120,9 +128,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void loadFacultySpinner() {
         Spinner facultySpinner = findViewById(R.id.faculty_spinner);
-        ArrayAdapter ad = new ArrayAdapter(this, android.R.layout.simple_spinner_item,facultyList);
+        ArrayAdapter ad = new ArrayAdapter(this, android.R.layout.simple_spinner_item,facultyDepartmentHashMap.keySet().toArray());
+
         ad.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         facultySpinner.setAdapter(ad);
+        Spinner departmentSpinner = findViewById(R.id.department_spinner);
+        facultySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String selectedFaculty = facultySpinner.getSelectedItem().toString();
+                String[] selectedFacultyDepartments = facultyDepartmentHashMap.get(selectedFaculty);
+                ArrayAdapter<String> departmentAdapter = new ArrayAdapter(MainActivity.this, android.R.layout.simple_spinner_item,selectedFacultyDepartments);
+                departmentAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                departmentSpinner.setAdapter(departmentAdapter);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
     @Override
