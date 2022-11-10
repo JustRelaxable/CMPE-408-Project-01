@@ -17,7 +17,6 @@
         android:paddingTop="8dp"
         android:paddingLeft="4dp"
         android:paddingRight="4dp">
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,10 +38,12 @@
         android:layout_height="wrap_content"
         android:hint="@string/last_name"/>
     <Button
+        android:id="@+id/birth_date_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/birth_date"/>
     <TextView
+        android:id="@+id/birth_date_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/birth_date_not_selected"

@@ -2,6 +2,8 @@ package com.rc2.cmpe408project01;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
+import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -89,6 +92,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button resetButton = findViewById(R.id.reset_button);
         resetButton.setOnClickListener(this);
+
+        Button birtDateButton = findViewById(R.id.birth_date_button);
+        birtDateButton.setOnClickListener(this);
     }
 
     private void handleStudentIDTextChangedListener() {
@@ -135,6 +141,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.exit_button:
                 System.exit(0);
+                break;
+            case R.id.birth_date_button:
+                new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                        TextView birthDateText = findViewById(R.id.birth_date_text);
+                        birthDateText.setText(day+"/"+month+"/"+year);
+                    }
+                },2020,1,1).show();
                 break;
             default:
                 break;
