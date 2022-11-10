@@ -37,6 +37,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/last_name"/>
+        <EditText
+            android:id="@+id/gpa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:hint="@string/gpa"/>
     <Button
         android:id="@+id/birth_date_button"
         android:layout_width="match_parent"

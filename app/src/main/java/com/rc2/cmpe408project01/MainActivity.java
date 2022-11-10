@@ -40,6 +40,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         loadBirthplaceSpinner();
         loadFacultySpinner();
         handleStudentIDTextChangedListener();
+        handleGPATextChangedListener();
+    }
+
+    private void handleGPATextChangedListener() {
+        EditText gpaText = findViewById(R.id.gpa);
+        gpaText.addTextChangedListener(new TextWatcher() {
+            boolean periodEnabled = false;
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(editable.length() == 1 && !periodEnabled){
+                    editable.append(".");
+                    periodEnabled = true;
+                }
+                if(editable.length() == 1 && periodEnabled){
+                    editable.clear();
+                    periodEnabled = false;
+                }
+                if(editable.length() > 4){
+                    editable = editable.delete(4,5);
+                }
+            }
+        });
     }
 
     private void loadFacultyDepartmentHashMap() {
