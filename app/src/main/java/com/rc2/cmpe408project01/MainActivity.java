@@ -24,14 +24,17 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    HashMap<String, String[]> facultyDepartmentHashMap = new HashMap<>();
+    JSONObject cities;
     private EditText gpa;
-    private EditText name ;
+    private EditText name;
     private EditText last_name;
-    private EditText id ;
+    private EditText id;
     private EditText studentIDText;
     private RadioButton sex_male;
     private RadioButton sex_female;
@@ -53,13 +56,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String bd_values;
     private String faculty_value;
 
-
-
-
-
-    HashMap<String,String[]> facultyDepartmentHashMap = new HashMap<>();
-    JSONObject cities;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         EditText gpaText = findViewById(R.id.gpa_id);
         gpaText.addTextChangedListener(new TextWatcher() {
             boolean periodEnabled = false;
+
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -90,25 +87,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if(editable.length() == 1 && !periodEnabled){
+                if (editable.length() == 1 && !periodEnabled) {
                     editable.append(".");
                     periodEnabled = true;
                 }
-                if(editable.length() == 1 && periodEnabled){
+                if (editable.length() == 1 && periodEnabled) {
                     editable.clear();
                     periodEnabled = false;
                 }
-                if(editable.length() > 4){
-                    editable = editable.delete(4,5);
+                if (editable.length() > 4) {
+                    editable = editable.delete(4, 5);
                 }
             }
         });
     }
 
     private void loadFacultyDepartmentHashMap() {
-        facultyDepartmentHashMap.put("Faculty of Arts",new String[] {"Art 1","Art 2","Art 3"});
-        facultyDepartmentHashMap.put("Faculty of Law",new String[]{"Law 1","Law 2","Law 3"});
-        facultyDepartmentHashMap.put("Faculty of Engineering",new String[]{"Engineering 1","Engineering 2","Engineering 3"});
+        facultyDepartmentHashMap.put("Faculty of Arts", new String[]{"Art 1", "Art 2", "Art 3"});
+        facultyDepartmentHashMap.put("Faculty of Law", new String[]{"Law 1", "Law 2", "Law 3"});
+        facultyDepartmentHashMap.put("Faculty of Engineering", new String[]{"Engineering 1", "Engineering 2", "Engineering 3"});
     }
 
     private void loadCities() {
@@ -118,11 +115,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             byte[] buffer = new byte[size];
             is.read(buffer);
             is.close();
-            String raw = new String(buffer,"UTF-8");
+            String raw = new String(buffer, StandardCharsets.UTF_8);
             cities = new JSONObject(raw);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
+        } catch (IOException | JSONException e) {
             e.printStackTrace();
         }
     }
@@ -130,10 +125,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void loadBirthplaceSpinner() {
         Spinner birthplaceSpinner = findViewById(R.id.birthplace_spinner);
         String[] cityCodes = new String[81];
-        for (int i = 1;i<=81;i++){
-            cityCodes[i-1] = String.valueOf(i);
+        for (int i = 1; i <= 81; i++) {
+            cityCodes[i - 1] = String.valueOf(i);
         }
-        ArrayAdapter ad = new ArrayAdapter(this, android.R.layout.simple_spinner_item,cityCodes);
+        ArrayAdapter ad = new ArrayAdapter(this, android.R.layout.simple_spinner_item, cityCodes);
         ad.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         birthplaceSpinner.setAdapter(ad);
         TextView cityName = findViewById(R.id.city_name);
@@ -141,8 +136,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 try {
-                    cityName.setText(cities.getString(String.valueOf(i+1)));
-                    city_value = (cities.getString(String.valueOf(i+1)));
+                    cityName.setText(cities.getString(String.valueOf(i + 1)));
+                    city_value = (cities.getString(String.valueOf(i + 1)));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -183,8 +178,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if(editable.length() > 11){
-                    editable = editable.delete(11,12);
+                if (editable.length() > 11) {
+                    editable = editable.delete(11, 12);
                 }
             }
         });
@@ -192,7 +187,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void loadFacultySpinner() {
         Spinner facultySpinner = findViewById(R.id.faculty_spinner);
-        ArrayAdapter ad = new ArrayAdapter(this, android.R.layout.simple_spinner_item,facultyDepartmentHashMap.keySet().toArray());
+        ArrayAdapter ad = new ArrayAdapter(this, android.R.layout.simple_spinner_item, facultyDepartmentHashMap.keySet().toArray());
 
         ad.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         facultySpinner.setAdapter(ad);
@@ -202,7 +197,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String selectedFaculty = facultySpinner.getSelectedItem().toString();
                 String[] selectedFacultyDepartments = facultyDepartmentHashMap.get(selectedFaculty);
-                ArrayAdapter<String> departmentAdapter = new ArrayAdapter(MainActivity.this, android.R.layout.simple_spinner_item,selectedFacultyDepartments);
+                ArrayAdapter<String> departmentAdapter = new ArrayAdapter(MainActivity.this, android.R.layout.simple_spinner_item, selectedFacultyDepartments);
                 departmentAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 departmentSpinner.setAdapter(departmentAdapter);
             }
@@ -217,91 +212,81 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.submit_button:
                 //TODO: Implement control mechanism to all defined widgets to check if fields are complete.
                 boolean allFieldsFilled = false;
-                if(allFieldsFilled || true) {   // geçici oalrak true
-                    name = (EditText)findViewById(R.id.name_id);
+                if (allFieldsFilled || true) {   // geçici oalrak true
+                    name = findViewById(R.id.name_id);
                     String name_value = name.getText().toString();
 
-                    last_name = (EditText)findViewById(R.id.last_name);
+                    last_name = findViewById(R.id.last_name);
                     String Lname_value = last_name.getText().toString();
 
-                    studentIDText = (EditText)findViewById(R.id.student_id);
+                    studentIDText = findViewById(R.id.student_id);
                     String id_value = studentIDText.getText().toString();
 
-                    gpa = (EditText)findViewById(R.id.gpa_id);
+                    gpa = findViewById(R.id.gpa_id);
                     String gpa_value = gpa.getText().toString();
 
 
-
-
-                    sex_male = (RadioButton)findViewById(R.id.male);
-                    sex_female = (RadioButton)findViewById(R.id.female);
+                    sex_male = findViewById(R.id.male);
+                    sex_female = findViewById(R.id.female);
                     String sex_value = "none";
 
-                    if(sex_male.isChecked()){
+                    if (sex_male.isChecked()) {
                         sex_value = "male";
-                    }
-                    else if(sex_female.isChecked()){
+                    } else if (sex_female.isChecked()) {
                         sex_value = "female";
                     }
 
-                    full_scholarship = (RadioButton)findViewById(R.id.full);
-                    half_scholarship = (RadioButton)findViewById(R.id.half);
-                    none_scholarship = (RadioButton)findViewById(R.id.none);
+                    full_scholarship = findViewById(R.id.full);
+                    half_scholarship = findViewById(R.id.half);
+                    none_scholarship = findViewById(R.id.none);
                     String scholarship_value = "none";
 
-                    if(full_scholarship.isChecked()){
+                    if (full_scholarship.isChecked()) {
                         scholarship_value = "full";
-                    }
-                    else if(half_scholarship.isChecked()){
+                    } else if (half_scholarship.isChecked()) {
                         scholarship_value = "half";
-                    }
-                    else if(none_scholarship.isChecked()){
+                    } else if (none_scholarship.isChecked()) {
                         scholarship_value = "none";
                     }
 
 
+                    CreateNewDialog(name_value, Lname_value, id_value, sex_value, scholarship_value, city_value, gpa_value, bd_values);
 
-                    CreateNewDialog(name_value,Lname_value,id_value,sex_value,scholarship_value,city_value,gpa_value,bd_values);
-
-                }else
+                } else
                     Toast.makeText(this, R.string.fields_are_incomplete_warning, Toast.LENGTH_SHORT).show();
                 break;
             case R.id.reset_button:
 
-                id = (EditText)findViewById(R.id.student_id);
+                id = findViewById(R.id.student_id);
                 id.setText("");
 
-                name = (EditText)findViewById(R.id.name_id);
+                name = findViewById(R.id.name_id);
                 name.setText("");
 
-                last_name = (EditText)findViewById(R.id.last_name);
+                last_name = findViewById(R.id.last_name);
                 last_name.setText("");
 
-                gpa = (EditText)findViewById(R.id.gpa_id);
+                gpa = findViewById(R.id.gpa_id);
                 gpa.setText("");
 
-                sex_male = (RadioButton)findViewById(R.id.male);
+                sex_male = findViewById(R.id.male);
                 sex_male.setChecked(false);
 
-                sex_female = (RadioButton)findViewById(R.id.female);
+                sex_female = findViewById(R.id.female);
                 sex_female.setChecked(false);
 
-                full_scholarship = (RadioButton)findViewById(R.id.full);
+                full_scholarship = findViewById(R.id.full);
                 full_scholarship.setChecked(false);
-                half_scholarship = (RadioButton)findViewById(R.id.half);
+                half_scholarship = findViewById(R.id.half);
                 half_scholarship.setChecked(false);
-                none_scholarship = (RadioButton)findViewById(R.id.none);
+                none_scholarship = findViewById(R.id.none);
                 none_scholarship.setChecked(false);
 
                 birthDateText.setText("Birth date is not selected!");
-
-
-
-
 
 
                 break;
@@ -313,10 +298,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                         birthDateText = findViewById(R.id.birth_date_text);
-                        birthDateText.setText(day+"/"+month+"/"+year);
-                        bd_values =(day+"/"+month+"/"+year);
+                        birthDateText.setText(day + "/" + month + "/" + year);
+                        bd_values = (day + "/" + month + "/" + year);
                     }
-                },2020,1,1).show();
+                }, 2020, 1, 1).show();
                 break;
             default:
                 break;
@@ -324,41 +309,45 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-
-    public void CreateNewDialog(String name,String last_name,String id,String sex,String scholarship,String bp,String gpa,String bd){
+    public void CreateNewDialog(String name, String last_name, String id, String sex, String scholarship, String bp, String gpa, String bd) {
         dialogBuilder = new AlertDialog.Builder(this);
-        final View contactPopupView = getLayoutInflater().inflate(R.layout.popup,null);
+        final View contactPopupView = getLayoutInflater().inflate(R.layout.popup, null);
 
         dialogBuilder.setView(contactPopupView);
         dialog = dialogBuilder.create();
         dialog.show();
 
-        pop_id = (TextView) contactPopupView.findViewById(R.id.pop_id);
+        pop_id = contactPopupView.findViewById(R.id.pop_id);
         pop_id.setText(id);
 
-        pop_name = (TextView) contactPopupView.findViewById(R.id.pop_name);
+        pop_name = contactPopupView.findViewById(R.id.pop_name);
         pop_name.setText(name);
 
-        pop_Lname = (TextView) contactPopupView.findViewById(R.id.pop_Lname);
+        pop_Lname = contactPopupView.findViewById(R.id.pop_Lname);
         pop_Lname.setText(last_name);
 
-        pop_gender = (TextView) contactPopupView.findViewById(R.id.pop_gender);
+        pop_gender = contactPopupView.findViewById(R.id.pop_gender);
         pop_gender.setText(sex);
 
-        pop_scholar = (TextView) contactPopupView.findViewById(R.id.pop_scholar);
+        pop_scholar = contactPopupView.findViewById(R.id.pop_scholar);
         pop_scholar.setText(scholarship);
 
-        pop_bp = (TextView) contactPopupView.findViewById(R.id.pop_bp);
+        pop_bp = contactPopupView.findViewById(R.id.pop_bp);
         pop_bp.setText(bp);
 
-        pop_gpa = (TextView) contactPopupView.findViewById(R.id.pop_gpa);
+        pop_gpa = contactPopupView.findViewById(R.id.pop_gpa);
         pop_gpa.setText(gpa);
 
-        pop_bd = (TextView) contactPopupView.findViewById(R.id.pop_bd);
+        pop_bd = contactPopupView.findViewById(R.id.pop_bd);
         pop_bd.setText(bd);
 
+        TextView pop_faculty = contactPopupView.findViewById(R.id.pop_faculty);
+        Spinner facultySpinner = findViewById(R.id.faculty_spinner);
+        pop_faculty.setText(facultySpinner.getSelectedItem().toString());
 
-
+        TextView popDepartment = contactPopupView.findViewById(R.id.pop_dep);
+        Spinner departmentSpinner = findViewById(R.id.department_spinner);
+        popDepartment.setText(departmentSpinner.getSelectedItem().toString());
     }
 
 

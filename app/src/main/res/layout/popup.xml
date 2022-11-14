@@ -70,7 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="42dp"
             android:gravity="right"
-            android:text="Gender"
+            android:text="@string/gender"
             android:textColor="@color/black"
             android:textSize="24sp"
             android:textStyle="bold|italic" />
@@ -80,7 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="42dp"
             android:gravity="right"
-            android:text="@string/gender"
+            android:text="@string/scholarship"
             android:textColor="@color/black"
             android:textSize="24sp"
             android:textStyle="bold|italic" />
