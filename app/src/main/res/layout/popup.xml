@@ -120,37 +120,7 @@
             android:layout_width="match_parent"
             android:layout_height="42dp"
             android:gravity="right"
-            android:text="Murat"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            android:textStyle="bold|italic" />
-
-        <TextView
-            android:id="@+id/textView100"
-            android:layout_width="match_parent"
-            android:layout_height="42dp"
-            android:gravity="right"
-            android:text="Murat"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            android:textStyle="bold|italic" />
-
-        <TextView
-            android:id="@+id/textView101"
-            android:layout_width="match_parent"
-            android:layout_height="42dp"
-            android:gravity="right"
-            android:text="Murat"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            android:textStyle="bold|italic" />
-
-        <TextView
-            android:id="@+id/textView65"
-            android:layout_width="match_parent"
-            android:layout_height="42dp"
-            android:gravity="right"
-            android:text="Murat"
+            android:text="@string/additional_info"
             android:textColor="@color/black"
             android:textSize="24sp"
             android:textStyle="bold|italic" />
@@ -268,36 +238,6 @@
 
         <TextView
             android:id="@+id/textView126"
-            android:layout_width="match_parent"
-            android:layout_height="42dp"
-            android:text="Murat"
-            android:textColor="#EA0808"
-            android:textColorLink="#E60F0F"
-            android:textSize="24sp"
-            android:textStyle="italic" />
-
-        <TextView
-            android:id="@+id/textView127"
-            android:layout_width="match_parent"
-            android:layout_height="42dp"
-            android:text="Murat"
-            android:textColor="#EA0808"
-            android:textColorLink="#E60F0F"
-            android:textSize="24sp"
-            android:textStyle="italic" />
-
-        <TextView
-            android:id="@+id/textView128"
-            android:layout_width="match_parent"
-            android:layout_height="42dp"
-            android:text="Murat"
-            android:textColor="#EA0808"
-            android:textColorLink="#E60F0F"
-            android:textSize="24sp"
-            android:textStyle="italic" />
-
-        <TextView
-            android:id="@+id/textView66"
             android:layout_width="match_parent"
             android:layout_height="42dp"
             android:text="Murat"
