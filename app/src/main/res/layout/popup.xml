@@ -3,14 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="203dp"
-        android:layout_height="734dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -18,135 +19,150 @@
             android:id="@+id/textView89"
             android:layout_width="match_parent"
             android:layout_height="42dp"
-            android:text="ID"
+            android:gravity="right"
+            android:text="@string/id"
             android:textColor="@color/black"
-            android:textSize="34sp"
+            android:textSize="24sp"
             android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/textView90"
             android:layout_width="match_parent"
             android:layout_height="42dp"
-            android:text="Name"
+            android:gravity="right"
+            android:text="@string/name"
             android:textColor="@color/black"
-            android:textSize="34sp"
+            android:textSize="24sp"
             android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/textView91"
             android:layout_width="match_parent"
             android:layout_height="42dp"
-            android:text="Last Name"
+            android:gravity="right"
+            android:text="@string/last_name"
             android:textColor="@color/black"
-            android:textSize="34sp"
+            android:textSize="24sp"
             android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/textView92"
             android:layout_width="match_parent"
             android:layout_height="42dp"
-            android:text="Bird Date"
+            android:gravity="right"
+            android:text="@string/birth_date"
             android:textColor="@color/black"
-            android:textSize="34sp"
+            android:textSize="24sp"
             android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/textView93"
             android:layout_width="match_parent"
             android:layout_height="42dp"
-            android:text="Birthplace"
+            android:gravity="right"
+            android:text="@string/birthplace"
             android:textColor="@color/black"
-            android:textSize="34sp"
+            android:textSize="24sp"
             android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/textView94"
             android:layout_width="match_parent"
             android:layout_height="42dp"
+            android:gravity="right"
             android:text="Gender"
             android:textColor="@color/black"
-            android:textSize="34sp"
+            android:textSize="24sp"
             android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/textView95"
             android:layout_width="match_parent"
             android:layout_height="42dp"
-            android:text="Scholarship"
+            android:gravity="right"
+            android:text="@string/gender"
             android:textColor="@color/black"
-            android:textSize="34sp"
+            android:textSize="24sp"
             android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/textView96"
             android:layout_width="match_parent"
             android:layout_height="42dp"
-            android:text="Faculty"
+            android:gravity="right"
+            android:text="@string/faculty"
             android:textColor="@color/black"
-            android:textSize="34sp"
+            android:textSize="24sp"
             android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/textView97"
             android:layout_width="match_parent"
             android:layout_height="42dp"
-            android:text="Department"
+            android:gravity="right"
+            android:text="@string/department"
             android:textColor="@color/black"
-            android:textSize="34sp"
+            android:textSize="24sp"
             android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/textView98"
             android:layout_width="match_parent"
             android:layout_height="42dp"
-            android:text="GPA"
+            android:gravity="right"
+            android:text="@string/gpa"
             android:textColor="@color/black"
-            android:textSize="34sp"
+            android:textSize="24sp"
             android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/textView99"
             android:layout_width="match_parent"
             android:layout_height="42dp"
+            android:gravity="right"
             android:text="Murat"
             android:textColor="@color/black"
-            android:textSize="34sp"
+            android:textSize="24sp"
             android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/textView100"
             android:layout_width="match_parent"
             android:layout_height="42dp"
+            android:gravity="right"
             android:text="Murat"
             android:textColor="@color/black"
-            android:textSize="34sp"
+            android:textSize="24sp"
             android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/textView101"
             android:layout_width="match_parent"
             android:layout_height="42dp"
+            android:gravity="right"
             android:text="Murat"
             android:textColor="@color/black"
-            android:textSize="34sp"
+            android:textSize="24sp"
             android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/textView65"
             android:layout_width="match_parent"
             android:layout_height="42dp"
+            android:gravity="right"
             android:text="Murat"
             android:textColor="@color/black"
-            android:textSize="34sp"
+            android:textSize="24sp"
             android:textStyle="bold|italic" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="196dp"
-        android:layout_height="729dp"
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/linearLayout2"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -291,4 +307,5 @@
             android:textStyle="italic" />
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

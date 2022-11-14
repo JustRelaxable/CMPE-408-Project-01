@@ -27,4 +27,6 @@
     <string name="fields_submitted_successfully">Informations submitted successfully!</string>
     <string name="scholarship_status">Scholarship Status</string>
     <string name="gpa">GPA</string>
+    <string name="faculty">Faculty</string>
+    <string name="department">Department</string>
 </resources>
