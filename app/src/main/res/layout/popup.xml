@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="203dp"
+        android:layout_height="734dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView89"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="ID"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/textView90"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="Name"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/textView91"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="Last Name"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/textView92"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="Bird Date"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/textView93"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="Birthplace"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/textView94"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="Gender"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/textView95"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="Scholarship"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/textView96"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="Faculty"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/textView97"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="Department"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/textView98"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="GPA"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/textView99"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="Murat"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/textView100"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="Murat"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/textView101"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="Murat"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/textView65"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="Murat"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            android:textStyle="bold|italic" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="196dp"
+        android:layout_height="729dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/pop_id"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="Murat"
+            android:textColor="#EA0808"
+            android:textColorLink="#E60F0F"
+            android:textSize="24sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/pop_name"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="Murat"
+            android:textColor="#EA0808"
+            android:textColorLink="#E60F0F"
+            android:textSize="24sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/pop_Lname"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="Murat"
+            android:textColor="#EA0808"
+            android:textColorLink="#E60F0F"
+            android:textSize="24sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/pop_bd"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="Murat"
+            android:textColor="#EA0808"
+            android:textColorLink="#E60F0F"
+            android:textSize="24sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/pop_bp"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="Murat"
+            android:textColor="#EA0808"
+            android:textColorLink="#E60F0F"
+            android:textSize="24sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/pop_gender"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="Murat"
+            android:textColor="#EA0808"
+            android:textColorLink="#E60F0F"
+            android:textSize="24sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/pop_scholar"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="Murat"
+            android:textColor="#EA0808"
+            android:textColorLink="#E60F0F"
+            android:textSize="24sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/pop_faculty"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="Murat"
+            android:textColor="#EA0808"
+            android:textColorLink="#E60F0F"
+            android:textSize="24sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/pop_dep"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="Murat"
+            android:textColor="#EA0808"
+            android:textColorLink="#E60F0F"
+            android:textSize="24sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/pop_gpa"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="Murat"
+            android:textColor="#EA0808"
+            android:textColorLink="#E60F0F"
+            android:textSize="24sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/textView126"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="Murat"
+            android:textColor="#EA0808"
+            android:textColorLink="#E60F0F"
+            android:textSize="24sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/textView127"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="Murat"
+            android:textColor="#EA0808"
+            android:textColorLink="#E60F0F"
+            android:textSize="24sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/textView128"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="Murat"
+            android:textColor="#EA0808"
+            android:textColorLink="#E60F0F"
+            android:textSize="24sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/textView66"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="Murat"
+            android:textColor="#EA0808"
+            android:textColorLink="#E60F0F"
+            android:textSize="24sp"
+            android:textStyle="italic" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
