@@ -248,8 +248,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         birthDateText.getText().toString() == getString(R.string.birth_date_not_selected)) allFieldsFilled = false;
                 if(additionalCheck.isChecked() && additionalText.getText().length() == 0) allFieldsFilled = false;
                 if(gpa.getText().length() < 4) allFieldsFilled = false;
-                float gpaScore = Float.parseFloat(gpa.getText().toString());
-                if(gpaScore > 4.00 || gpaScore < 0) allFieldsFilled = false;
+                if(gpa.getText().length() == 4){
+                    float gpaScore = Float.parseFloat(gpa.getText().toString());
+                    if(gpaScore > 4.00 || gpaScore < 0) allFieldsFilled = false;
+                }
 
                 if (allFieldsFilled) {   // geçici oalrak true
                     CreateStudentOutputDialog();
