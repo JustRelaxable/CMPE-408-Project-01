@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -52,15 +53,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText additionalText;
     private CheckBox additionalCheck;
 
-    private void show() {    // bunu nereye koyucağımı bilemedim doğru yerde çalışıyor.
-
-        if (additionalCheck.isChecked())
-            additionalText.setVisibility(View.VISIBLE);
-
-        else
-            additionalText.setVisibility(View.INVISIBLE);
-    }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +66,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         loadFacultySpinner();
         handleStudentIDTextChangedListener();
         handleGPATextChangedListener();
+        handleAdditionalInfoCheckedListener();
+    }
+
+    private void handleAdditionalInfoCheckedListener() {
+        additionalCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                additionalText.setVisibility(b?View.VISIBLE:View.INVISIBLE);
+            }
+        });
     }
 
     private void handleGPATextChangedListener() {
