@@ -238,8 +238,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
             case R.id.submit_button:
                 //TODO: Implement control mechanism to all defined widgets to check if fields are complete.
-                boolean allFieldsFilled = false;
-                if (allFieldsFilled || true) {   // geçici oalrak true
+                boolean allFieldsFilled = true;
+                if(studentIDText.getText().length() != 11 ||
+                        name.getText().length() == 0 ||
+                        last_name.getText().length() == 0 ||
+                        gpa.getText().length() == 0 ||
+                        !(sex_male.isChecked() || sex_female.isChecked()) ||
+                        !(full_scholarship.isChecked() || half_scholarship.isChecked() || none_scholarship.isChecked()) ||
+                        birthDateText.getText().toString() == getString(R.string.birth_date_not_selected)) allFieldsFilled = false;
+                if(additionalCheck.isChecked() && additionalText.getText().length() == 0) allFieldsFilled = false;
+                if(gpa.getText().length() < 4) allFieldsFilled = false;
+                float gpaScore = Float.parseFloat(gpa.getText().toString());
+                if(gpaScore > 4.00 || gpaScore < 0) allFieldsFilled = false;
+
+                if (allFieldsFilled) {   // geçici oalrak true
                     CreateStudentOutputDialog();
 
                 } else
