@@ -153,10 +153,18 @@
     </LinearLayout>
 
         <CheckBox
-            android:id="@+id/additional_id"
+            android:id="@+id/additional_check_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/additional_info" />
+
+        <EditText
+            android:id="@+id/additional_text_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Additional info"
+            android:visibility="invisible"
+            />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

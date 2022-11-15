@@ -237,10 +237,9 @@
             android:textStyle="italic" />
 
         <TextView
-            android:id="@+id/textView126"
+            android:id="@+id/pop_add"
             android:layout_width="match_parent"
             android:layout_height="42dp"
-            android:text="Murat"
             android:textColor="#EA0808"
             android:textColorLink="#E60F0F"
             android:textSize="24sp"

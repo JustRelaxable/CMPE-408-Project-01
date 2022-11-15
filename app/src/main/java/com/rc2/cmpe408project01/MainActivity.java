@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -29,6 +30,9 @@ import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+
+
+
     HashMap<String, String[]> facultyDepartmentHashMap = new HashMap<>();
     JSONObject cities;
     private EditText gpa;
@@ -42,7 +46,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private RadioButton half_scholarship;
     private RadioButton none_scholarship;
     private TextView birthDateText;
+    private TextView pop_faculty;
+    private TextView popDepartment;
     private TextView cityName;
+    private EditText additionalText;
+    private CheckBox additionalCheck;
+
+    private void show() {    // bunu nereye koyucağımı bilemedim doğru yerde çalışıyor.
+
+        if (additionalCheck.isChecked())
+            additionalText.setVisibility(View.VISIBLE);
+
+        else
+            additionalText.setVisibility(View.INVISIBLE);
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -154,6 +172,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         half_scholarship = findViewById(R.id.half);
         none_scholarship = findViewById(R.id.none);
 
+        additionalText = findViewById(R.id.additional_text_id);
         name = findViewById(R.id.name_id);
         last_name = findViewById(R.id.last_name);
         studentIDText = findViewById(R.id.student_id);
@@ -162,6 +181,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         sex_female = findViewById(R.id.female);
 
         cityName = findViewById(R.id.city_name);
+        additionalCheck = findViewById(R.id.additional_check_id);
+        additionalText = findViewById(R.id.additional_text_id);
     }
 
     private void handleStudentIDTextChangedListener() {
@@ -218,11 +239,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 boolean allFieldsFilled = false;
                 if (allFieldsFilled || true) {   // geçici oalrak true
                     CreateStudentOutputDialog();
+
                 } else
                     Toast.makeText(this, R.string.fields_are_incomplete_warning, Toast.LENGTH_SHORT).show();
                 break;
             case R.id.reset_button:
-                id.setText("");
+
+                studentIDText.setText("");
                 name.setText("");
                 last_name.setText("");
                 gpa.setText("");
@@ -231,7 +254,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 full_scholarship.setChecked(false);
                 half_scholarship.setChecked(false);
                 none_scholarship.setChecked(false);
-                birthDateText.setText("Birth date is not selected!");
+                birthDateText.setText("Bird date is not selected!");
+                additionalText.setText("");
+           //     pop_faculty.setText("");  çalışmıyor uygulamayı çökertiyor.
+
+
                 break;
             case R.id.exit_button:
                 System.exit(0);
@@ -242,6 +269,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                         birthDateText = findViewById(R.id.birth_date_text);
                         birthDateText.setText(day + "/" + month + "/" + year);
+
                     }
                 }, 2020, 1, 1).show();
                 break;
@@ -249,6 +277,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
+
 
 
     public void CreateStudentOutputDialog() {
@@ -259,6 +288,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Dialog dialog = dialogBuilder.create();
         dialog.show();
 
+
+        String add_value = additionalText.getText().toString();
         String name_value = name.getText().toString();
         String Lname_value = last_name.getText().toString();
         String id_value = studentIDText.getText().toString();
@@ -285,6 +316,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             scholarship_value = "none";
         }
 
+        TextView pop_add = contactPopupView.findViewById(R.id.pop_add);
+        pop_add.setText(add_value);
+
         TextView pop_id = contactPopupView.findViewById(R.id.pop_id);
         pop_id.setText(id_value);
 
@@ -309,13 +343,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView pop_bd = contactPopupView.findViewById(R.id.pop_bd);
         pop_bd.setText(birthDateText.getText());
 
-        TextView pop_faculty = contactPopupView.findViewById(R.id.pop_faculty);
+        pop_faculty = contactPopupView.findViewById(R.id.pop_faculty);
         Spinner facultySpinner = findViewById(R.id.faculty_spinner);
         pop_faculty.setText(facultySpinner.getSelectedItem().toString());
 
-        TextView popDepartment = contactPopupView.findViewById(R.id.pop_dep);
+        popDepartment = contactPopupView.findViewById(R.id.pop_dep);
         Spinner departmentSpinner = findViewById(R.id.department_spinner);
         popDepartment.setText(departmentSpinner.getSelectedItem().toString());
+
     }
 
 
