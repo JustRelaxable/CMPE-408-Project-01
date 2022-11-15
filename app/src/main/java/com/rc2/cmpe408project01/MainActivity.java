@@ -31,15 +31,11 @@ import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-
-
-
     HashMap<String, String[]> facultyDepartmentHashMap = new HashMap<>();
     JSONObject cities;
     private EditText gpa;
     private EditText name;
     private EditText last_name;
-    private EditText id;
     private EditText studentIDText;
     private RadioButton sex_male;
     private RadioButton sex_female;
@@ -52,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView cityName;
     private EditText additionalText;
     private CheckBox additionalCheck;
+    private Spinner facultySpinner,departmentSpinner,birthplaceSpinner;
 
 
     @Override
@@ -131,7 +128,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void loadBirthplaceSpinner() {
-        Spinner birthplaceSpinner = findViewById(R.id.birthplace_spinner);
         String[] cityCodes = new String[81];
         for (int i = 1; i <= 81; i++) {
             cityCodes[i - 1] = String.valueOf(i);
@@ -185,6 +181,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         cityName = findViewById(R.id.city_name);
         additionalCheck = findViewById(R.id.additional_check_id);
         additionalText = findViewById(R.id.additional_text_id);
+        birthDateText = findViewById(R.id.birth_date_text);
+        facultySpinner = findViewById(R.id.faculty_spinner);
+        departmentSpinner = findViewById(R.id.department_spinner);
+        birthplaceSpinner = findViewById(R.id.birthplace_spinner);
     }
 
     private void handleStudentIDTextChangedListener() {
@@ -256,9 +256,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 full_scholarship.setChecked(false);
                 half_scholarship.setChecked(false);
                 none_scholarship.setChecked(false);
-                birthDateText.setText("Bird date is not selected!");
+                birthDateText.setText(R.string.birth_date_not_selected);
                 additionalText.setText("");
-           //     pop_faculty.setText("");  çalışmıyor uygulamayı çökertiyor.
+                facultySpinner.setSelection(0);
+                departmentSpinner.setSelection(0);
+                birthplaceSpinner.setSelection(0);
+
 
 
                 break;
@@ -269,7 +272,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                        birthDateText = findViewById(R.id.birth_date_text);
                         birthDateText.setText(day + "/" + month + "/" + year);
 
                     }
@@ -346,11 +348,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         pop_bd.setText(birthDateText.getText());
 
         pop_faculty = contactPopupView.findViewById(R.id.pop_faculty);
-        Spinner facultySpinner = findViewById(R.id.faculty_spinner);
+
         pop_faculty.setText(facultySpinner.getSelectedItem().toString());
 
         popDepartment = contactPopupView.findViewById(R.id.pop_dep);
-        Spinner departmentSpinner = findViewById(R.id.department_spinner);
+
         popDepartment.setText(departmentSpinner.getSelectedItem().toString());
 
     }
