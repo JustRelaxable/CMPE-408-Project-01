@@ -264,6 +264,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 if (allFieldsFilled) {   // geçici oalrak true
+                    StudentDatabaseHandler.instance.addStudentToDatabase(new StudentModel(studentIDText.getText().toString(),name.getText().toString(),last_name.getText().toString(),facultySpinner.getSelectedItem().toString(),departmentSpinner.getSelectedItem().toString()));
                     CreateStudentOutputDialog();
 
                 } else
