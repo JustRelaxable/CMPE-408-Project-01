@@ -1,8 +1,11 @@
 package com.rc2.cmpe408project01;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 public class display_students extends AppCompatActivity {
 
@@ -12,5 +15,11 @@ public class display_students extends AppCompatActivity {
         setContentView(R.layout.activity_display_students);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle("Display Students");
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        finish();
+        return super.onOptionsItemSelected(item);
     }
 }
