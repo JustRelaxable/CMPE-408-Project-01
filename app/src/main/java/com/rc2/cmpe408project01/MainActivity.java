@@ -406,6 +406,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(MainActivity.this,display_students.class));
                 break;
             case "Search":
+                startActivity(new Intent(this,search_student.class));
                 break;
             case "Update":
                 break;
