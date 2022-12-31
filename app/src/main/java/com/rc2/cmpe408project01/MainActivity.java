@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -19,6 +20,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -379,9 +381,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         menu.add("Display");
         menu.add("Search");
         menu.add("Update");
-        menu.add("Delete");
         menu.add("Help");
         menu.add("Delete");
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        String menuTitle = (String) item.getTitle();
+        switch (menuTitle){
+            case "Submit":
+                Toast.makeText(this, "You clicked Submit", Toast.LENGTH_SHORT).show();
+                break;
+            case "Reset":
+                break;
+            case "Display":
+                break;
+            case "Search":
+                break;
+            case "Update":
+                break;
+            case "Help":
+                break;
+            case "Delete":
+                break;
+
+        }
         return true;
     }
 }
