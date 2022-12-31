@@ -31,6 +31,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         StudentDatabaseHandler studentDatabaseHandler = new StudentDatabaseHandler(this);
         studentDatabaseHandler.addStudentToDatabase(new StudentModel("1","Taha","Sokmen",0,1));
+        List<StudentModel> x = studentDatabaseHandler.getStudents();
         setContentView(R.layout.activity_main);
 
         loadFacultyDepartmentHashMap();

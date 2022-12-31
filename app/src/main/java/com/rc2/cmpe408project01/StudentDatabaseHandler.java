@@ -2,19 +2,21 @@ package com.rc2.cmpe408project01;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StudentDatabaseHandler extends SQLiteOpenHelper {
     private String tableName = "STUDENTS";
 
     public StudentDatabaseHandler(@Nullable Context context) {
         super(context, "studentDB", null, 1);
-        //String sqlQuery = "CREATE TABLE "+ tableName+ "(StudentID int)";
-        //Toast.makeText(context, sqlQuery, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -37,5 +39,23 @@ public class StudentDatabaseHandler extends SQLiteOpenHelper {
         cv.put("StudentFaculty",studentModel.getStudentFaculty());
         cv.put("StudentDepartment",studentModel.getStudentDepartment());
         db.insert(tableName,null,cv);
+    }
+
+    public List<StudentModel> getStudents(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        List<StudentModel> studentList = new ArrayList<StudentModel>();
+        String selectQuery = "SELECT * FROM " + tableName;
+        Cursor cursor = db.rawQuery(selectQuery,null);
+        if (cursor.moveToFirst()) {
+            do {
+                String studentID = cursor.getString(0);
+                String studentName = cursor.getString(1);
+                String studentSurname = cursor.getString(2);
+                int studentFaculty = Integer.parseInt(cursor.getString(3));
+                int studentDepartment = Integer.parseInt(cursor.getString(4));
+                studentList.add(new StudentModel(studentID,studentName,studentSurname,studentFaculty,studentDepartment));
+            } while (cursor.moveToNext());
+        }
+        return studentList;
     }
 }
