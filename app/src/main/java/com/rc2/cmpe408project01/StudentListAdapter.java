@@ -43,7 +43,7 @@ public class StudentListAdapter extends BaseAdapter {
         TextView idField = customView.findViewById(R.id.student_list_instance_id);
         idField.setText("ID:"+students.get(i).getStudentID());
         TextView departmentField = customView.findViewById(R.id.student_list_instance_department);
-        departmentField.setText(String.valueOf(students.get(i).getStudentDepartment()));
+        departmentField.setText("Department:"+String.valueOf(students.get(i).getStudentDepartment()));
         return customView;
     }
 }

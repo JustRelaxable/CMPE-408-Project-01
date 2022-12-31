@@ -1,10 +1,9 @@
 package com.rc2.cmpe408project01;
 
 public class StudentModel {
-    private String studentID,studentName,studentSurname;
-    private int studentFaculty,studentDepartment;
+    private String studentID,studentName,studentSurname,studentFaculty,studentDepartment;
 
-    public StudentModel(String studentID,String studentName,String studentSurname,int studentFaculty,int studentDepartment){
+    public StudentModel(String studentID,String studentName,String studentSurname,String studentFaculty,String studentDepartment){
         this.studentID = studentID;
         this.studentName = studentName;
         this.studentSurname = studentSurname;
@@ -12,7 +11,7 @@ public class StudentModel {
         this.studentDepartment = studentDepartment;
     }
 
-    public int getStudentDepartment() {
+    public String getStudentDepartment() {
         return studentDepartment;
     }
 
@@ -28,7 +27,7 @@ public class StudentModel {
         return studentSurname;
     }
 
-    public int getStudentFaculty() {
+    public String getStudentFaculty() {
         return studentFaculty;
     }
 }

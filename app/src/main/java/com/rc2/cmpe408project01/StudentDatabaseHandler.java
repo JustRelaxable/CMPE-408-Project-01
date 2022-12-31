@@ -53,8 +53,8 @@ public class StudentDatabaseHandler extends SQLiteOpenHelper {
                 String studentID = cursor.getString(0);
                 String studentName = cursor.getString(1);
                 String studentSurname = cursor.getString(2);
-                int studentFaculty = Integer.parseInt(cursor.getString(3));
-                int studentDepartment = Integer.parseInt(cursor.getString(4));
+                String studentFaculty = cursor.getString(3);
+                String studentDepartment = cursor.getString(4);
                 studentList.add(new StudentModel(studentID,studentName,studentSurname,studentFaculty,studentDepartment));
             } while (cursor.moveToNext());
         }
