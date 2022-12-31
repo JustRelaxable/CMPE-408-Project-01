@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -371,5 +372,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add("Submit");
+        menu.add("Reset");
+        menu.add("Display");
+        menu.add("Search");
+        menu.add("Update");
+        menu.add("Delete");
+        menu.add("Help");
+        menu.add("Delete");
+        return true;
+    }
 }
