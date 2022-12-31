@@ -13,10 +13,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentDatabaseHandler extends SQLiteOpenHelper {
+    public static StudentDatabaseHandler instance;
     private String tableName = "STUDENTS";
 
     public StudentDatabaseHandler(@Nullable Context context) {
         super(context, "studentDB", null, 1);
+        instance = this;
     }
 
     @Override

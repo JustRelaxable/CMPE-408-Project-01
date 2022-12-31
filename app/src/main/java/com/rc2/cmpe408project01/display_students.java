@@ -5,7 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class display_students extends AppCompatActivity {
 
@@ -15,6 +19,11 @@ public class display_students extends AppCompatActivity {
         setContentView(R.layout.activity_display_students);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle("Display Students");
+
+        List<StudentModel> students = StudentDatabaseHandler.instance.getStudents();
+        StudentListAdapter studentListAdapter = new StudentListAdapter(this,new ArrayList<StudentModel>(students));
+        ListView studentListView = findViewById(R.id.student_list_view);
+        studentListView.setAdapter(studentListAdapter);
     }
 
     @Override

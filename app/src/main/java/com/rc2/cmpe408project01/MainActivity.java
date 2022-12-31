@@ -59,9 +59,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //StudentDatabaseHandler studentDatabaseHandler = new StudentDatabaseHandler(this);
-        //studentDatabaseHandler.addStudentToDatabase(new StudentModel("1","Taha","Sokmen",0,1));
-        //List<StudentModel> x = studentDatabaseHandler.getStudents();
+        StudentDatabaseHandler studentDatabaseHandler = new StudentDatabaseHandler(this);
+        //StudentDatabaseHandler.instance.addStudentToDatabase(new StudentModel("1","Taha","Sokmen",0,1));
+
 
         setContentView(R.layout.activity_main);
 
