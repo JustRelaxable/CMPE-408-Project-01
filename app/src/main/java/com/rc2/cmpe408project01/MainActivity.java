@@ -2,6 +2,7 @@ package com.rc2.cmpe408project01;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -58,9 +59,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        StudentDatabaseHandler studentDatabaseHandler = new StudentDatabaseHandler(this);
-        studentDatabaseHandler.addStudentToDatabase(new StudentModel("1","Taha","Sokmen",0,1));
-        List<StudentModel> x = studentDatabaseHandler.getStudents();
+        //StudentDatabaseHandler studentDatabaseHandler = new StudentDatabaseHandler(this);
+        //studentDatabaseHandler.addStudentToDatabase(new StudentModel("1","Taha","Sokmen",0,1));
+        //List<StudentModel> x = studentDatabaseHandler.getStudents();
+
         setContentView(R.layout.activity_main);
 
         loadFacultyDepartmentHashMap();
@@ -71,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         handleStudentIDTextChangedListener();
         handleGPATextChangedListener();
         handleAdditionalInfoCheckedListener();
+
     }
 
     private void handleAdditionalInfoCheckedListener() {
@@ -400,6 +403,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case "Reset":
                 break;
             case "Display":
+                startActivity(new Intent(MainActivity.this,display_students.class));
                 break;
             case "Search":
                 break;
