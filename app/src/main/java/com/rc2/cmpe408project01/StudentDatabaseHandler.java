@@ -60,4 +60,21 @@ public class StudentDatabaseHandler extends SQLiteOpenHelper {
         }
         return studentList;
     }
+
+    public StudentModel getStudentByID(String ID){
+        List<StudentModel> x = getStudents();
+        SQLiteDatabase db = this.getWritableDatabase();
+        String selectionQuery = "SELECT * FROM "+tableName+" WHERE StudentID="+ID;
+        Cursor cursor = db.rawQuery(selectionQuery,null);
+        if (cursor.moveToFirst()) {
+            String studentID = cursor.getString(0);
+            String studentName = cursor.getString(1);
+            String studentSurname = cursor.getString(2);
+            String studentFaculty = cursor.getString(3);
+            String studentDepartment = cursor.getString(4);
+            return new StudentModel(studentID,studentName,studentSurname,studentFaculty,studentDepartment);
+        }
+       return null;
+
+    }
 }

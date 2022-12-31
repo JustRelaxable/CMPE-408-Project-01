@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         StudentDatabaseHandler studentDatabaseHandler = new StudentDatabaseHandler(this);
         //StudentDatabaseHandler.instance.addStudentToDatabase(new StudentModel("1","Taha","Sokmen","Faculty of Engineering","Computer Engineering"));
-
+        //StudentModel x = StudentDatabaseHandler.instance.getStudentByID("1");
 
         setContentView(R.layout.activity_main);
 
