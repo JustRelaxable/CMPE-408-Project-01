@@ -75,6 +75,10 @@ public class StudentDatabaseHandler extends SQLiteOpenHelper {
             return new StudentModel(studentID,studentName,studentSurname,studentFaculty,studentDepartment);
         }
        return null;
+    }
 
+    public boolean deleteStudentByID(String id){
+        SQLiteDatabase db = getWritableDatabase();
+        return db.delete(tableName, "StudentID="+id, null) > 0;
     }
 }

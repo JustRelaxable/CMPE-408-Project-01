@@ -413,6 +413,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case "Help":
                 break;
             case "Delete":
+                startActivity(new Intent(this,delete_student.class));
                 break;
 
         }
