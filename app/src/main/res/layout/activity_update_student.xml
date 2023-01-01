@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".update_student"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/student_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Student ID to update">
+    </EditText>
+    <EditText
+        android:id="@+id/student_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Updated student name">
+    </EditText>
+    <EditText
+        android:id="@+id/student_surname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Updated student surname">
+    </EditText>
+    <EditText
+        android:id="@+id/student_faculty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Updated student faculty">
+    </EditText>
+    <EditText
+        android:id="@+id/student_department"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Updated student department">
+    </EditText>
+    <Button
+        android:id="@+id/update_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update!">
+    </Button>
+</LinearLayout>

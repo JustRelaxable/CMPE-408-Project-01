@@ -81,4 +81,14 @@ public class StudentDatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         return db.delete(tableName, "StudentID="+id, null) > 0;
     }
+
+    public void updateStudent(StudentModel updatedStudent){
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("StudentName",updatedStudent.getStudentName());
+        cv.put("StudentSurname",updatedStudent.getStudentSurname());
+        cv.put("StudentFaculty",updatedStudent.getStudentFaculty());
+        cv.put("StudentDepartment",updatedStudent.getStudentDepartment());
+        db.update(tableName,cv,"StudentID="+updatedStudent.getStudentID(),null);
+    }
 }
