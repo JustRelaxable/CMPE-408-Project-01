@@ -1,12 +1,11 @@
 package com.rc2.cmpe408project01;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ListView;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +20,7 @@ public class display_students extends AppCompatActivity {
         setTitle("Display Students");
 
         List<StudentModel> students = StudentDatabaseHandler.instance.getStudents();
-        StudentListAdapter studentListAdapter = new StudentListAdapter(this,new ArrayList<StudentModel>(students));
+        StudentListAdapter studentListAdapter = new StudentListAdapter(this, new ArrayList<StudentModel>(students));
         ListView studentListView = findViewById(R.id.student_list_view);
         studentListView.setAdapter(studentListAdapter);
     }

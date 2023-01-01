@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -23,7 +22,7 @@ public class StudentDatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String sqlQuery = "CREATE TABLE "+ tableName+ "(StudentID varchar(255), StudentName varchar(255),StudentSurname varchar(255),studentFaculty int,studentDepartment int)";
+        String sqlQuery = "CREATE TABLE " + tableName + "(StudentID varchar(255) primary key, StudentName varchar(255),StudentSurname varchar(255),studentFaculty int,studentDepartment int)";
         sqLiteDatabase.execSQL(sqlQuery);
     }
 
@@ -32,22 +31,22 @@ public class StudentDatabaseHandler extends SQLiteOpenHelper {
 
     }
 
-    public void addStudentToDatabase(StudentModel studentModel){
+    public void addStudentToDatabase(StudentModel studentModel) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put("StudentID",studentModel.getStudentID());
-        cv.put("StudentName",studentModel.getStudentName());
-        cv.put("StudentSurname",studentModel.getStudentSurname());
-        cv.put("StudentFaculty",studentModel.getStudentFaculty());
-        cv.put("StudentDepartment",studentModel.getStudentDepartment());
-        db.insert(tableName,null,cv);
+        cv.put("StudentID", studentModel.getStudentID());
+        cv.put("StudentName", studentModel.getStudentName());
+        cv.put("StudentSurname", studentModel.getStudentSurname());
+        cv.put("StudentFaculty", studentModel.getStudentFaculty());
+        cv.put("StudentDepartment", studentModel.getStudentDepartment());
+        db.insert(tableName, null, cv);
     }
 
-    public List<StudentModel> getStudents(){
+    public List<StudentModel> getStudents() {
         SQLiteDatabase db = this.getWritableDatabase();
         List<StudentModel> studentList = new ArrayList<StudentModel>();
         String selectQuery = "SELECT * FROM " + tableName;
-        Cursor cursor = db.rawQuery(selectQuery,null);
+        Cursor cursor = db.rawQuery(selectQuery, null);
         if (cursor.moveToFirst()) {
             do {
                 String studentID = cursor.getString(0);
@@ -55,40 +54,40 @@ public class StudentDatabaseHandler extends SQLiteOpenHelper {
                 String studentSurname = cursor.getString(2);
                 String studentFaculty = cursor.getString(3);
                 String studentDepartment = cursor.getString(4);
-                studentList.add(new StudentModel(studentID,studentName,studentSurname,studentFaculty,studentDepartment));
+                studentList.add(new StudentModel(studentID, studentName, studentSurname, studentFaculty, studentDepartment));
             } while (cursor.moveToNext());
         }
         return studentList;
     }
 
-    public StudentModel getStudentByID(String ID){
+    public StudentModel getStudentByID(String ID) {
         List<StudentModel> x = getStudents();
         SQLiteDatabase db = this.getWritableDatabase();
-        String selectionQuery = "SELECT * FROM "+tableName+" WHERE StudentID="+ID;
-        Cursor cursor = db.rawQuery(selectionQuery,null);
+        String selectionQuery = "SELECT * FROM " + tableName + " WHERE StudentID=" + ID;
+        Cursor cursor = db.rawQuery(selectionQuery, null);
         if (cursor.moveToFirst()) {
             String studentID = cursor.getString(0);
             String studentName = cursor.getString(1);
             String studentSurname = cursor.getString(2);
             String studentFaculty = cursor.getString(3);
             String studentDepartment = cursor.getString(4);
-            return new StudentModel(studentID,studentName,studentSurname,studentFaculty,studentDepartment);
+            return new StudentModel(studentID, studentName, studentSurname, studentFaculty, studentDepartment);
         }
-       return null;
+        return null;
     }
 
-    public boolean deleteStudentByID(String id){
+    public boolean deleteStudentByID(String id) {
         SQLiteDatabase db = getWritableDatabase();
-        return db.delete(tableName, "StudentID="+id, null) > 0;
+        return db.delete(tableName, "StudentID=" + id, null) > 0;
     }
 
-    public void updateStudent(StudentModel updatedStudent){
+    public void updateStudent(StudentModel updatedStudent) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put("StudentName",updatedStudent.getStudentName());
-        cv.put("StudentSurname",updatedStudent.getStudentSurname());
-        cv.put("StudentFaculty",updatedStudent.getStudentFaculty());
-        cv.put("StudentDepartment",updatedStudent.getStudentDepartment());
-        db.update(tableName,cv,"StudentID="+updatedStudent.getStudentID(),null);
+        cv.put("StudentName", updatedStudent.getStudentName());
+        cv.put("StudentSurname", updatedStudent.getStudentSurname());
+        cv.put("StudentFaculty", updatedStudent.getStudentFaculty());
+        cv.put("StudentDepartment", updatedStudent.getStudentDepartment());
+        db.update(tableName, cv, "StudentID=" + updatedStudent.getStudentID(), null);
     }
 }

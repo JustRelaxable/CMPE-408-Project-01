@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingTop="8dp"
     android:paddingLeft="4dp"
+    android:paddingTop="8dp"
     android:paddingRight="4dp"
     tools:context=".MainActivity">
 
@@ -14,21 +13,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingTop="8dp"
         android:paddingLeft="4dp"
+        android:paddingTop="8dp"
         android:paddingRight="4dp">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/greeting_text"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-    <EditText
-        android:id="@+id/student_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:hint="@string/student_id"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/greeting_text"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/student_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/student_id"
+            android:inputType="number" />
 
         <EditText
             android:id="@+id/name_id"
@@ -41,116 +42,131 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/last_name" />
+
         <EditText
             android:id="@+id/gpa_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:hint="@string/gpa"/>
-    <Button
-        android:id="@+id/birth_date_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/birth_date"/>
-    <TextView
-        android:id="@+id/birth_date_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/birth_date_not_selected"
-        android:textAlignment="center"
-        android:textSize="16sp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/gender_selection"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            android:hint="@string/gpa"
+            android:inputType="numberDecimal" />
 
-        <RadioButton
-            android:id="@+id/male"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/birth_date_button"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/male" />
+            android:text="@string/birth_date" />
 
-        <RadioButton
-            android:id="@+id/female"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/birth_date_text"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/female" />
-    </RadioGroup>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/scholarship_status"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            android:text="@string/birth_date_not_selected"
+            android:textAlignment="center"
+            android:textSize="16sp" />
 
-        <RadioButton
-            android:id="@+id/full"
-            android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/full" />
+            android:text="@string/gender_selection"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-        <RadioButton
-            android:id="@+id/half"
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/half" />
+            android:orientation="horizontal">
 
-        <RadioButton
-            android:id="@+id/none"
-            android:layout_width="wrap_content"
+            <RadioButton
+                android:id="@+id/male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/male" />
+
+            <RadioButton
+                android:id="@+id/female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/female" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/none" />
-    </RadioGroup>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/faculty_selection"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
-    <Spinner
-        android:id="@+id/faculty_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+            android:text="@string/scholarship_status"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/full"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/full" />
+
+            <RadioButton
+                android:id="@+id/half"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/half" />
+
+            <RadioButton
+                android:id="@+id/none"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/none" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/faculty_selection"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/faculty_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/department_selection"
             android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
+
         <Spinner
             android:id="@+id/department_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/birthplace_selection"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Spinner
-            android:id="@+id/birthplace_spinner"
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-        <TextView
-            android:id="@+id/city_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+            android:text="@string/birthplace_selection"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/birthplace_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/city_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
         <CheckBox
             android:id="@+id/additional_check_id"
@@ -163,29 +179,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Additional info"
-            android:visibility="invisible"
-            />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+            android:visibility="invisible" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/reset_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/reset" />
+
+            <Button
+                android:id="@+id/exit_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/exit" />
+        </LinearLayout>
+
         <Button
-            android:id="@+id/reset_button"
-            android:layout_width="wrap_content"
+            android:id="@+id/submit_button"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/reset"
-            android:layout_weight="1"/>
-        <Button
-            android:id="@+id/exit_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/exit"
-            android:layout_weight="1"/>
-    </LinearLayout>
-    <Button
-        android:id="@+id/submit_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/submit"/>
+            android:text="@string/submit" />
 
     </LinearLayout>
 </ScrollView>

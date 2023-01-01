@@ -1,8 +1,5 @@
 package com.rc2.cmpe408project01;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,11 +7,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class search_student extends AppCompatActivity {
 
-    TextView studentName,studentID,studentFaculty,studentDepartment;
+    TextView studentName, studentID, studentFaculty, studentDepartment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +26,7 @@ public class search_student extends AppCompatActivity {
         studentFaculty = findViewById(R.id.student_faculty);
         studentDepartment = findViewById(R.id.student_department);
 
-        ((Button)findViewById(R.id.student_search_button)).setOnClickListener(new View.OnClickListener() {
+        ((Button) findViewById(R.id.student_search_button)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 EditText studentIDField = findViewById(R.id.student_id_field);
@@ -44,10 +42,10 @@ public class search_student extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void FillStudentFields(StudentModel student){
-        studentName.setText("Student name: "+student.getStudentName()+" "+student.getStudentSurname());
-        studentID.setText("Student ID: "+student.getStudentID());
-        studentFaculty.setText("Student Faculty:"+student.getStudentFaculty());
-        studentDepartment.setText("Student Department:"+student.getStudentDepartment());
+    private void FillStudentFields(StudentModel student) {
+        studentName.setText("Student name: " + student.getStudentName() + " " + student.getStudentSurname());
+        studentID.setText("Student ID: " + student.getStudentID());
+        studentFaculty.setText("Student Faculty:" + student.getStudentFaculty());
+        studentDepartment.setText("Student Department:" + student.getStudentDepartment());
     }
 }

@@ -32,7 +32,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -53,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView cityName;
     private EditText additionalText;
     private CheckBox additionalCheck;
-    private Spinner facultySpinner,departmentSpinner,birthplaceSpinner;
+    private Spinner facultySpinner, departmentSpinner, birthplaceSpinner;
 
 
     @Override
@@ -80,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         additionalCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                additionalText.setVisibility(b?View.VISIBLE:View.INVISIBLE);
+                additionalText.setVisibility(b ? View.VISIBLE : View.INVISIBLE);
             }
         });
     }
@@ -249,22 +248,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.submit_button:
                 //TODO: Implement control mechanism to all defined widgets to check if fields are complete.
                 boolean allFieldsFilled = true;
-                if(studentIDText.getText().length() != 11 ||
+                if (studentIDText.getText().length() != 11 ||
                         name.getText().length() == 0 ||
                         last_name.getText().length() == 0 ||
                         gpa.getText().length() == 0 ||
                         !(sex_male.isChecked() || sex_female.isChecked()) ||
                         !(full_scholarship.isChecked() || half_scholarship.isChecked() || none_scholarship.isChecked()) ||
-                        birthDateText.getText().toString() == getString(R.string.birth_date_not_selected)) allFieldsFilled = false;
-                if(additionalCheck.isChecked() && additionalText.getText().length() == 0) allFieldsFilled = false;
-                if(gpa.getText().length() < 4) allFieldsFilled = false;
-                if(gpa.getText().length() == 4){
+                        birthDateText.getText().toString() == getString(R.string.birth_date_not_selected))
+                    allFieldsFilled = false;
+                if (additionalCheck.isChecked() && additionalText.getText().length() == 0)
+                    allFieldsFilled = false;
+                if (gpa.getText().length() < 4) allFieldsFilled = false;
+                if (gpa.getText().length() == 4) {
                     float gpaScore = Float.parseFloat(gpa.getText().toString());
-                    if(gpaScore > 4.00 || gpaScore < 0) allFieldsFilled = false;
+                    if (gpaScore > 4.00 || gpaScore < 0) allFieldsFilled = false;
                 }
 
                 if (allFieldsFilled) {   // geçici oalrak true
-                    StudentDatabaseHandler.instance.addStudentToDatabase(new StudentModel(studentIDText.getText().toString(),name.getText().toString(),last_name.getText().toString(),facultySpinner.getSelectedItem().toString(),departmentSpinner.getSelectedItem().toString()));
+                    StudentDatabaseHandler.instance.addStudentToDatabase(new StudentModel(studentIDText.getText().toString(), name.getText().toString(), last_name.getText().toString(), facultySpinner.getSelectedItem().toString(), departmentSpinner.getSelectedItem().toString()));
                     CreateStudentOutputDialog();
 
                 } else
@@ -288,7 +289,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 birthplaceSpinner.setSelection(0);
 
 
-
                 break;
             case R.id.exit_button:
                 System.exit(0);
@@ -306,7 +306,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
-
 
 
     public void CreateStudentOutputDialog() {
@@ -397,25 +396,62 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         String menuTitle = (String) item.getTitle();
-        switch (menuTitle){
+        switch (menuTitle) {
             case "Submit":
-                Toast.makeText(this, "You clicked Submit", Toast.LENGTH_SHORT).show();
+                //TODO: Implement control mechanism to all defined widgets to check if fields are complete.
+                boolean allFieldsFilled = true;
+                if (studentIDText.getText().length() != 11 ||
+                        name.getText().length() == 0 ||
+                        last_name.getText().length() == 0 ||
+                        gpa.getText().length() == 0 ||
+                        !(sex_male.isChecked() || sex_female.isChecked()) ||
+                        !(full_scholarship.isChecked() || half_scholarship.isChecked() || none_scholarship.isChecked()) ||
+                        birthDateText.getText().toString() == getString(R.string.birth_date_not_selected))
+                    allFieldsFilled = false;
+                if (additionalCheck.isChecked() && additionalText.getText().length() == 0)
+                    allFieldsFilled = false;
+                if (gpa.getText().length() < 4) allFieldsFilled = false;
+                if (gpa.getText().length() == 4) {
+                    float gpaScore = Float.parseFloat(gpa.getText().toString());
+                    if (gpaScore > 4.00 || gpaScore < 0) allFieldsFilled = false;
+                }
+
+                if (allFieldsFilled) {   // geçici oalrak true
+                    StudentDatabaseHandler.instance.addStudentToDatabase(new StudentModel(studentIDText.getText().toString(), name.getText().toString(), last_name.getText().toString(), facultySpinner.getSelectedItem().toString(), departmentSpinner.getSelectedItem().toString()));
+                    CreateStudentOutputDialog();
+
+                } else
+                    Toast.makeText(this, R.string.fields_are_incomplete_warning, Toast.LENGTH_SHORT).show();
                 break;
             case "Reset":
+                studentIDText.setText("");
+                name.setText("");
+                last_name.setText("");
+                gpa.setText("");
+                sex_male.setChecked(false);
+                sex_female.setChecked(false);
+                full_scholarship.setChecked(false);
+                half_scholarship.setChecked(false);
+                none_scholarship.setChecked(false);
+                birthDateText.setText(R.string.birth_date_not_selected);
+                additionalText.setText("");
+                facultySpinner.setSelection(0);
+                departmentSpinner.setSelection(0);
+                birthplaceSpinner.setSelection(0);
                 break;
             case "Display":
-                startActivity(new Intent(MainActivity.this,display_students.class));
+                startActivity(new Intent(MainActivity.this, display_students.class));
                 break;
             case "Search":
-                startActivity(new Intent(this,search_student.class));
+                startActivity(new Intent(this, search_student.class));
                 break;
             case "Update":
-                startActivity(new Intent(this,update_student.class));
+                startActivity(new Intent(this, update_student.class));
                 break;
             case "Help":
                 break;
             case "Delete":
-                startActivity(new Intent(this,delete_student.class));
+                startActivity(new Intent(this, delete_student.class));
                 break;
 
         }

@@ -1,17 +1,16 @@
 package com.rc2.cmpe408project01;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class update_student extends AppCompatActivity {
 
-    EditText studentID,studentName,studentSurname,studentFaculty,studentDepartment;
+    EditText studentID, studentName, studentSurname, studentFaculty, studentDepartment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
