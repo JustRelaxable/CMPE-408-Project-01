@@ -1,13 +1,13 @@
 package com.rc2.cmpe408project01;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class delete_student extends AppCompatActivity {
 
@@ -21,7 +21,7 @@ public class delete_student extends AppCompatActivity {
         setTitle("Delete Students");
 
         studentIDEditText = findViewById(R.id.student_id);
-        ((Button)findViewById(R.id.delete_button)).setOnClickListener(new View.OnClickListener() {
+        ((Button) findViewById(R.id.delete_button)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 StudentDatabaseHandler.instance.deleteStudentByID(studentIDEditText.getText().toString());
