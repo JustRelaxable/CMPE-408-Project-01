@@ -22,7 +22,7 @@ public class StudentDatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String sqlQuery = "CREATE TABLE " + tableName + "(StudentID varchar(255) primary key, StudentName varchar(255),StudentSurname varchar(255),studentFaculty int,studentDepartment int)";
+        String sqlQuery = "CREATE TABLE " + tableName + "(StudentID varchar(255), StudentName varchar(255),StudentSurname varchar(255),studentFaculty int,studentDepartment int)";
         sqLiteDatabase.execSQL(sqlQuery);
     }
 
